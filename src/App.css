@@ -21,3 +21,8 @@ a:hover {
   font-style: italic;
   text-decoration: line-through;
 }
+
+.edit-true {
+  background-color:rgb(221, 238, 240);
+  border-radius: 5px;
+}
