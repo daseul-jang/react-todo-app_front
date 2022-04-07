@@ -11,7 +11,7 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [todoList, setTodoList] = useState([]);
 
-  // 백엔드 서버(스프링부트)로 연결 (최초 1번)
+  // 백엔드 서버(스프링부트)로 연결
   useEffect(() => {
     AxiosService.getTodoList((res) => {
       setTodoList(res.data);
