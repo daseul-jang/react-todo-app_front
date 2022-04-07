@@ -27,7 +27,7 @@ export default function TodoList(props) {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                minHeight: "150px",
+                minHeight: "134px",
               }}
             >
               <Typography variant="body2" color="textSecondary">

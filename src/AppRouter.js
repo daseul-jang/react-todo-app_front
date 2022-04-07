@@ -6,7 +6,6 @@ import SignIn from "./routes/SignIn";
 import SignUp from "./routes/SignUp";
 
 export default function AppRouter() {
-
   return (
     <div>
       <Router>
