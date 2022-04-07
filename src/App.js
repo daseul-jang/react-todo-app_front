@@ -5,7 +5,7 @@ import Loading from "./components/Loading";
 import NavBar from "./components/NavBar";
 import TodoApp from "./components/TodoApp";
 
-import { call } from "./service/ApiService";
+import AxiosService from "./service/AxiosService";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -13,30 +13,30 @@ export default function App() {
 
   // 백엔드 서버(스프링부트)로 연결 (최초 1번)
   useEffect(() => {
-    // ApiService.js
-    call("/todo", "GET", null).then((response) => {
-      // 서버에서 받아온 데이터(response.data)로 todoList 세팅
-      setTodoList(response.data);
-
-      // 서버에서 정보를 다 읽어오면 로딩이 끝나므로 false
+    AxiosService.getTodoList((res) => {
+      setTodoList(res.data);
       setLoading(false);
     });
   }, []);
 
   // Todo 추가
   const addTodo = (req) => {
-    call("/todo", "POST", req).then((response) => setTodoList(response.data));
+    AxiosService.addTodoItem(req, (res) => {
+      setTodoList(res.data);
+    });
   };
 
   // Todo 삭제
   const deleteTodo = (req) => {
-    call("/todo", "DELETE", req).then((response) => setTodoList(response.data));
+    AxiosService.deleteTodoItem(req, (res) => {
+      setTodoList(res.data);
+    });
   };
 
   // Todo 수정
   const updateTodo = (req) => {
-    call("/todo", "PUT", req).then((response) => {
-      setTodoList(response.data);
+    AxiosService.updateTodoItem(req, (res) => {
+      setTodoList(res.data);
     });
   };
 

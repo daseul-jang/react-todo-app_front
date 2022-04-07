@@ -1,22 +1,26 @@
-import { Button, Container, Grid, TextField, Typography } from "@material-ui/core";
+import {
+  Button,
+  Container,
+  Grid,
+  TextField,
+  Typography,
+} from "@material-ui/core";
 import { Link } from "react-router-dom";
-import { signup } from "../service/ApiService";
+//import { signup } from "../service/ApiService";
+import AxiosService from "../service/AxiosService";
 
 export default function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const data = new FormData(event.target);
-    const username = data.get("username");
-    const email = data.get("email");
-    const password = data.get("password");
+    const userDTO = {
+      username: data.get("username"),
+      email: data.get("email"),
+      password: data.get("password"),
+    };
 
-    signup({
-      // 앞은 input 박스에 선언, 뒤는 위에서 선언한 변수.
-      username: username,
-      email: email,
-      password: password,
-    }).then((response) => {
+    AxiosService.signUp(userDTO).then((response) => {
       // 회원가입 완료 후 로그인 페이지로 리다이렉트
       window.location.href = "/login";
     });
@@ -69,17 +73,16 @@ export default function SignUp() {
             />
           </Grid>
           <Grid item xs={12}>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-            >
+            <Button type="submit" fullWidth variant="contained" color="primary">
               계정 생성
             </Button>
           </Grid>
         </Grid>
-        <Grid container justifyContent="flex-end" style={{ marginTop: "0.4rem" }}>
+        <Grid
+          container
+          justifyContent="flex-end"
+          style={{ marginTop: "0.4rem" }}
+        >
           <Grid item>
             <Link to="/login" variant="body2">
               이미 계정이 있나요? 로그인 하세요.

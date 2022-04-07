@@ -6,7 +6,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import { signin } from "../service/ApiService";
+import AxiosService from "../service/AxiosService";
 
 export default function SignIn(props) {
   // 로그인 submit
@@ -15,10 +15,12 @@ export default function SignIn(props) {
     event.preventDefault();
 
     const data = new FormData(event.target);
-    const email = data.get("email");
-    const password = data.get("password");
+    const userDTO = {
+      email: data.get("email"),
+      password: data.get("password")
+    }
 
-    signin({ email: email, password: password });
+    AxiosService.signIn(userDTO);
   };
 
   return (

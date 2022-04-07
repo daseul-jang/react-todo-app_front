@@ -1,4 +1,6 @@
-import { API_BASE_URL } from "../app-config";
+/* 사용안함 */
+
+import { API_BASE_URL } from "../config/app-config";
 
 const ACCESS_TOKEN = "ACCESS_TOKEN";
 
