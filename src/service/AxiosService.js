@@ -65,6 +65,10 @@ const signUp = (userDTO) => {
   return Axios.post(`${URL_AUTH}/signup`, userDTO);
 };
 
+const emailCheck = (email) => {
+  return Axios.post(`${URL_AUTH}/signup/email-check`, email);
+}
+
 const AxiosService = {
   getTodoList,
   addTodoItem,
@@ -72,6 +76,7 @@ const AxiosService = {
   updateTodoItem,
   signIn,
   signUp,
+  emailCheck,
 };
 
 export default AxiosService;

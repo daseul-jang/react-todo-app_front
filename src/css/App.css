@@ -1,0 +1,33 @@
+body {
+  margin: 0px;
+}
+
+a {
+  text-decoration: none;
+  color: dimgray;
+}
+
+a:visited {
+  text-decoration: none;
+  color: dimgray;
+}
+
+a:hover {
+  text-decoration: none;
+  color: darkslategray;
+}
+
+.todoItem-checked {
+  font-style: italic;
+  text-decoration: line-through;
+}
+
+.edit-true {
+  background-color:rgb(221, 238, 240);
+  border-radius: 5px;
+}
+
+.valid {
+  padding: 0.3rem;
+  color: crimson;
+}
