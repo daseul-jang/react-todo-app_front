@@ -1,6 +1,6 @@
 import { Container } from "@material-ui/core";
 import { useEffect, useState } from "react";
-import "./App.css";
+import "./css/App.css";
 import Loading from "./components/Loading";
 import NavBar from "./components/NavBar";
 import TodoApp from "./components/TodoApp";
