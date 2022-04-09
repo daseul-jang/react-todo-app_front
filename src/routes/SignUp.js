@@ -99,7 +99,6 @@ export default function SignUp() {
                 validate: {
                   emailChk: (value) =>
                     AxiosService.emailCheck(value).then((response) => {
-                      console.log(`에베벱 : ${response.data}`);
                       return response.data ? "중복된 이메일입니다." : null;
                     }),
                 },
