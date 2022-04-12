@@ -9,7 +9,7 @@ import {
 import { makeStyles } from "@material-ui/core/styles";
 import { DeleteOutline, EditOutlined } from "@material-ui/icons";
 import { useEffect, useRef, useState } from "react";
-import { Toast } from "../toast";
+import { Toast } from "../swal";
 
 // 체크 시 글자 색상 변경을 위함 (material-ui)
 const useStyles = makeStyles((theme) => ({
