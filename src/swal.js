@@ -12,10 +12,20 @@ const config = Swal.mixin({
 const success = (msg) => {
   config.fire({
     icon: "success",
-    title: `${msg}되었습니다.`
-  })
+    title: `${msg}되었습니다.`,
+  });
 };
 
 export const Toast = {
   success,
 };
+
+export const loginAlert = (state, text) => {
+  Swal.fire({
+    icon: state,
+    text: text,
+  });
+};
+
+
+

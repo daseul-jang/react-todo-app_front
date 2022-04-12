@@ -7,6 +7,7 @@ import {
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import AxiosService from "../service/AxiosService";
+import { loginAlert } from "../swal";
 
 export default function SignIn(props) {
   // 로그인 submit
@@ -17,10 +18,14 @@ export default function SignIn(props) {
     const data = new FormData(event.target);
     const userDTO = {
       email: data.get("email"),
-      password: data.get("password")
-    }
+      password: data.get("password"),
+    };
 
-    AxiosService.signIn(userDTO);
+    AxiosService.emailCheck(userDTO.email).then((response) =>
+      response.data
+        ? AxiosService.signIn(userDTO)
+        : loginAlert("error", "존재하지 않는 아이디입니다.")
+    );
   };
 
   return (
