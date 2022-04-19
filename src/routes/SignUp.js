@@ -43,7 +43,7 @@ export default function SignUp() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <Typography component="h1" variant="h5">
+            <Typography component="h1" variant="h5" style={{ marginBottom: "5px" }}>
               계정 생성
             </Typography>
           </Grid>

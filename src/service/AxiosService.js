@@ -59,8 +59,8 @@ const signIn = (userDTO) => {
 };
 
 const signOut = () => {
-  localStorage.setItem("ACCESS_TOKEN", null);
-  localStorage.setItem("USER_NAME", null);
+  localStorage.removeItem("ACCESS_TOKEN");
+  localStorage.removeItem("USER_NAME");
   window.location.href = "/login";
 };
 
