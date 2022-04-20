@@ -1,5 +1,2 @@
 .git
 .gitignore
-/src
-/public
-/node_modules
